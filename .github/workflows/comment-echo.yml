@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     # if: github.event.pull_request.draft == true
     steps:
-      - run: echo "This got kicked off
+      - run: echo "This got kicked off"
       - name: Checkout
         uses: actions/checkout@v2
       - name: Use Node.js
