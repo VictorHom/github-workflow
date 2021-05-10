@@ -12,6 +12,6 @@ getPRInfo()
 async function getPRInfo() {
   const octokit = new Octokit()
 
-  const { data } = await octokit.request(process.env.ISSUE_URL.replace("issues", "pulls");
+  const { data } = await octokit.request(process.env.ISSUE_URL.replace("issues", "pulls"))
   console.log(data)
 }
