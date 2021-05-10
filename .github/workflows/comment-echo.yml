@@ -15,17 +15,18 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '14.x'
-      # - run: |
-      #     npm install @octokit/action
-      #     npm install @actions/github
-      #     npm install @actions/core
-      #     npm install axios
+      - run: |
+          npm install @octokit/action
+          npm install @actions/github
+          npm install @actions/core
+          npm install axios
       - run: |
           node scripts/comment.js
         env:
           COMMENT_ISSUE_NUMBER: ${{ github.event.issue.number }}
           PR_BODY: ${{ github.event.comment.body }}
           ISSUE_URL: ${{ github.event.comment.issue_url }}
+          PR_URL: ${{ github.event.comment.pull_request.url }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           github-token: ${{secrets.GITHUB_TOKEN}}
           CIRCLE_TOKEN: ${{ secrets.CIRCLE_TOKEN }}
