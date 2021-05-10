@@ -23,8 +23,9 @@ jobs:
       - run: |
           node scripts/comment.js
         env:
-          COMMENT_ISSUE_NUMBER: ${{ github.event.comment.issue.number }}
+          COMMENT_ISSUE_NUMBER: ${{ github.event.issue.number }}
           PR_BODY: ${{ github.event.comment.body }}
+          ISSUE_URL: ${{ github.event.comment.issue_url }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           github-token: ${{secrets.GITHUB_TOKEN}}
           CIRCLE_TOKEN: ${{ secrets.CIRCLE_TOKEN }}
