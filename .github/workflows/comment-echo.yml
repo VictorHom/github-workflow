@@ -6,7 +6,7 @@ on:
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
-    if: github.event.pull_request.draft == true
+    # if: github.event.pull_request.draft == true
     steps:
       - run: echo "This got kicked off
       - name: Checkout
