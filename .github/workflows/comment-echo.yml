@@ -1,0 +1,31 @@
+name: Comment commands test
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.draft == true
+    steps:
+      - run: echo "This got kicked off
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+      # - run: |
+      #     npm install @octokit/action
+      #     npm install @actions/github
+      #     npm install @actions/core
+      #     npm install axios
+      - run: |
+          node scripts/comment.js
+        env:
+          PR_BODY: ${{ github.event.comment.body }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          CIRCLE_TOKEN: ${{ secrets.CIRCLE_TOKEN }}
+          CIRCLE_USERNAME: ${{ secrets.CIRCLE_USERNAME }}
+
